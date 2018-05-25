@@ -51,7 +51,7 @@ Vue.component('hmap', require('./components/HeatMap.vue'));
 
 
 const routes = [
-    { path: '/', component: {template :"<adv></adv>"} },
+    { path: '/', component: {template :"<home></home>"} },
     { path: '/finance', component: { template: '<finance></finance>' } },
     { path: '/example', component: { template: '<example-component></example-component>' } },
     { path: '/account', component: { template: '<account></account>' } },

@@ -12,9 +12,13 @@
 
         <!-- Styles -->
           <link href="{{asset('css/app.css')}}" rel="stylesheet">
-          <link href="{{asset('css/reset.css')}}" rel="stylesheet">
+          <!-- <link href="{{asset('css/reset.css')}}" rel="stylesheet"> -->
 
         <style>
+            *{
+                margin: 0;
+                padding:0;
+            }
             html, body {
                 background-color: #fff;
                 color: #000000;
@@ -25,6 +29,16 @@
             }
             .el-main{
                 min-height: 600px;
+                line-height: 300px;
+                text-align: center;
+                font-size: 100px;
+            }
+            .el-footer{
+                text-align: center;
+                background: #dedede;
+                line-height: 60px;
+                font-size: 20px;
+                color:#ffffff;
             }
         </style>
     </head>
@@ -48,7 +62,10 @@
           
        </div>
     </body>
-    <script src="http://webapi.amap.com/loca?key=ee250a0046ba5e1cbb060277414f8c71"></script>
-<script src="http://a.amap.com/Loca/static/mock/heatmapData.js"></script>
+<!--     <script src="http://webapi.amap.com/loca?key=ee250a0046ba5e1cbb060277414f8c71"></script>
+<script src="http://a.amap.com/Loca/static/mock/heatmapData.js"></script> -->
+    <script type="text/javascript" src="{{mix('js/manifest.js')}}"></script>
+    <script type="text/javascript" src="{{mix('js/vendor.js')}}"></script>
     <script type="text/javascript" src="{{mix('js/app.js')}}"></script>
+
 </html>
