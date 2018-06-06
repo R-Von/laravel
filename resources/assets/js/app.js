@@ -42,7 +42,7 @@ Vue.component('adv', require('./components/Advertiser.vue'));
 Vue.component('finance', require('./components/Finance.vue'));
 Vue.component('account', require('./components/Account.vue'));
 Vue.component('chart', require('./components/Chart.vue'));
-// Vue.component('vmap', require('./components/Map.vue'));
+Vue.component('vmap', require('./components/Map.vue'));
 Vue.component('hmap', require('./components/HeatMap.vue'));
 
 
@@ -51,14 +51,16 @@ Vue.component('hmap', require('./components/HeatMap.vue'));
 
 
 const routes = [
-    { path: '/', component: {template :"<home></home>"} },
+    { path: '/', component: {template :"<adv></adv>"} },
     { path: '/finance', component: { template: '<finance></finance>' } },
     { path: '/example', component: { template: '<example-component></example-component>' } },
     { path: '/account', component: { template: '<account></account>' } },
     { path: '/ad', component: { template: '<adv></adv>' } },
     { path: '/example', component: { template: '<example-component></example-component>' } },
     { path: '/chart', component: { template: '<chart></chart>' } },
-    { path: '/hmap', component: { template: '<hmap></hmap>' } }
+    { path: '/map', component: { template: '<vmap></vmap>' } },
+    { path: '/hmap', component: { template: '<hmap></hmap>' } },
+
 ];
 
 
