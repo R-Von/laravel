@@ -21,6 +21,7 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
+    "babili-webpack-plugin": "^0.1.2",
     "element-ui": "^2.4.0",
     "vue-router": "^3.0.1"
   }

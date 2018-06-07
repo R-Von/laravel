@@ -1,5 +1,9 @@
 let mix = require('laravel-mix');
 
+const BabiliPlugin = require('babili-webpack-plugin');
+
+const webpack = require('webpack');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,15 +15,39 @@ let mix = require('laravel-mix');
  |
  */
 
+
+
+
+
+const webpackConfig = {
+    output: {
+          publicPath: "/",
+          chunkFilename: 'js/lazy/[name].[chunkhash].js'
+      },
+      plugins:[]
+}
+
+if (mix.config.inProduction) {
+    webpackConfig.plugins.push(new BabiliPlugin());
+
+    mix.options({
+        uglify: false
+    });
+    mix.disableNotifications();
+    //    mix.version();
+    
+} else {
+    mix.sourceMaps();
+}
+
+mix.webpackConfig(webpackConfig);
+
 mix.js('resources/assets/js/app.js', 'public/js')
    .extract(['vue', 'vue-router','element-ui'])
-   .webpackConfig({
-	    output: {
-	        publicPath: "/",
-	        chunkFilename: 'js/lazy/[name].[chunkhash].js'
-	    }
-	})
-   	.version()
+   .version()
+
+   // .uglify()
+   // .minify()
     // .webpackConfig({
     //     resolve: {
     //         extensions: ['.js', '.vue', '.json'],
