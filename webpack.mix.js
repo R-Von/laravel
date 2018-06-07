@@ -12,4 +12,24 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .extract(['vue', 'vue-router','element-ui'])
+   .webpackConfig({
+	    output: {
+	        publicPath: "/",
+	        chunkFilename: 'js/lazy/[name].[chunkhash].js'
+	    }
+	})
+   	.version()
+    // .webpackConfig({
+    //     resolve: {
+    //         extensions: ['.js', '.vue', '.json'],
+    //         alias: {
+    //             '@': path.resolve(__dirname, 'resources/assets/js'),
+    //         },
+    //     },
+    //     output: {
+    //         publicPath: '/',
+    //         filename: '[name].js',
+    //         chunkFilename: 'js/[name].chunk.js'
+    //     },
+    // });
