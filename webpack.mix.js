@@ -31,7 +31,7 @@ if (mix.config.inProduction) {
     webpackConfig.plugins.push(new BabiliPlugin());
 
     mix.options({
-        uglify: false
+        uglify: true
     });
     mix.disableNotifications();
     //    mix.version();
