@@ -30,4 +30,7 @@
 		line-height: 100px;
 		text-align: center;
 	}
+	.el-footer{
+		text-align: center;
+	}
 </style>

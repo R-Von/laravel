@@ -45,19 +45,3 @@ mix.webpackConfig(webpackConfig);
 mix.js('resources/assets/js/app.js', 'public/js')
    .extract(['vue', 'vue-router','element-ui'])
    .version()
-
-   // .uglify()
-   // .minify()
-    // .webpackConfig({
-    //     resolve: {
-    //         extensions: ['.js', '.vue', '.json'],
-    //         alias: {
-    //             '@': path.resolve(__dirname, 'resources/assets/js'),
-    //         },
-    //     },
-    //     output: {
-    //         publicPath: '/',
-    //         filename: '[name].js',
-    //         chunkFilename: 'js/[name].chunk.js'
-    //     },
-    // });
