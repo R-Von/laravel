@@ -44,4 +44,4 @@ mix.webpackConfig(webpackConfig);
 
 mix.js('resources/assets/js/app.js', 'public/js')
    .extract(['vue', 'vue-router','element-ui'])
-   .version()
+   // .version()

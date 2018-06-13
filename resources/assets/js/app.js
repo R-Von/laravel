@@ -27,6 +27,8 @@ const Layout  = () => import('./components/Layout')
 const Index   = () => import('./components/Index')
 const Article = () => import('./components/Article')
 const Cater   = () => import('./components/Cater')
+const Shape   = () => import('./components/Shape')
+
 
 
 
@@ -51,6 +53,10 @@ const routes = [
 			{
 				path:"Cater",
 				component:Cater
+			},
+			{
+				path:"Shape",
+				component:Shape
 			}
 		]
 	}
