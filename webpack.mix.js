@@ -4,6 +4,9 @@ const BabiliPlugin = require('babili-webpack-plugin');
 
 const webpack = require('webpack');
 
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -24,7 +27,9 @@ const webpackConfig = {
           publicPath: "/",
           chunkFilename: 'js/lazy/[name].[chunkhash].js'
       },
-      plugins:[]
+      plugins:[
+         new CleanWebpackPlugin(['public/js']),
+      ]
 }
 
 if (mix.config.inProduction) {
