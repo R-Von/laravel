@@ -6,6 +6,7 @@
 		  <el-menu-item index="2" route="article">文章</el-menu-item>
 		  <el-menu-item index="3" route="cater">分类</el-menu-item>
 		  <el-menu-item index="4" route="shape">形状</el-menu-item>
+		  <!-- <el-menu-item index="4" route="shape">形状</el-menu-item> -->
 
 		</el-menu>
 	  </el-header>

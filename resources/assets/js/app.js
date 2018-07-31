@@ -40,22 +40,23 @@ const routes = [
 	{
 		path:"/",
 		component:Layout,
-		redirect: '/Index',
+		redirect: '/index',
 		children:[
 			{
-				path:"Index",
+				path:"index",
 				component:Index
 			},
 			{
-				path:"Article",
+				path:"article",
 				component:Article
 			},
 			{
-				path:"Cater",
-				component:Cater
+				path:"cater",
+				component:Cater,
+				meta:{requiresAuth:true }
 			},
 			{
-				path:"Shape",
+				path:"shape",
 				component:Shape
 			}
 		]
@@ -65,153 +66,26 @@ const routes = [
 const router = new VueRouter({
 	routes
 })
+
+
+router.beforeEach((to, from, next) => {
+	console.log(to.meta.requiresAuth);
+	if (to.meta.requiresAuth) {  
+		// console.log("1");
+		 // next({
+   //              path: from.path,
+   //              query: { redirect: to.fullPath }  // 将跳转的路由path作为参数，登录成功后跳转到该路由
+   //          })
+   		next();
+	}else{
+		next();	
+	}
+	
+})
+
+
 const app = new Vue({
     router
 }).$mount("#app");
 
 
-
-
-
-// const routes = [
-//     {
-//         path:"/",
-//         component: { template:"<layout></layout>"},
-//         meta: {
-//             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//         },
-//         redirect: '/adv_index',
-//         children:[
-//             {
-//                 path:"adv_index",
-//                 name:"首页",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<adv-index></adv-index>" }          
-//             },
-//             {
-//                 path: "plan_create",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<plan-create></plan-create>" }  
-//             },
-//             {
-//                 path: "plan_list",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<plan-list></plan-list>" }
-//             },
-//             {
-//                 path: "plan_edit/:id",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<plan-edit></plan-edit>" }
-//             },
-//             {
-//                 path: "adv_platform",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<adv-platform></adv-platform>" }
-//             },
-//             {
-//                 path: "adv_look/:id",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<adv-look></adv-look>" }
-//             },
-//             {
-//                 path: "txadv_create/:mode",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<advtx-create></advtx-create>" }
-//             },
-//             {
-//                 path: "txadv_create/:mode/:id",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<advtx-create></advtx-create>" }
-//             },
-//             {
-//                 path: "txadv_edit/:mode/:id",
-//                 name: "广告",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<advtx-edit></advtx-edit>" }
-//             },
-//             {
-//                 path: "creative_list",
-//                 name: "创意",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<creative-list></creative-list>" }
-               
-//             },
-//             {
-//                 path: "creative_create",
-//                 name: "创意",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<creative-create></creative-create>" }
-
-//             },
-//             {
-//                 path: "creative_edit/:id/:gro_id",
-//                 name: "创意",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<creative-edit></creative-edit>" }
-
-//             },
-//             {
-//                 path: "sale_clue",
-//                 name: "销售线索",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<sale-clue></sale-clue>" }
-
-//             }, 
-//             {
-//                 path: "data_center",
-//                 name: "数据中心",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<data-center></data-center>" }
-
-//             },
-//             {
-//                 path: "population",
-//                 name: "定向人群包",
-//                 meta: {
-//                     requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
-//                 },
-//                 component: { template: "<population></population>" }
-               
-//             },
-//             {
-//                 path: "example",
-//                 component: { template: "<example-component></example-component>" }
-//             }
-//         ]
-//     }
-// ]
